@@ -1,0 +1,181 @@
+/* =====================================================
+   Faculty Leave Management System – CSS
+   Matches screenshots exactly
+===================================================== */
+
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',sans-serif; }
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4b2bbf 0%, #1176a3 50%, #4facfe 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ── Cards / Boxes ─────────────────────────────────── */
+.container, .box, .menu {
+  background: #ffffff;
+  width: 420px;
+  padding: 35px 30px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.container { width: 480px; }
+.menu      { width: 480px; padding: 35px 40px; }
+
+/* ── Headings ──────────────────────────────────────── */
+h1 { color: #1176a3; font-size: 24px; margin-bottom: 8px; }
+h2 { color: #1176a3; font-size: 22px; margin-bottom: 22px; font-weight: 700; }
+.container p { color: #555; font-size: 14px; margin-bottom: 26px; }
+
+/* ── Inputs ────────────────────────────────────────── */
+input, select, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1.5px solid #ddd;
+  font-size: 14px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background: #f7f9fc;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #1176a3;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(17,118,163,0.15);
+  background: #fff;
+}
+textarea { resize: vertical; min-height: 80px; }
+
+/* ── Buttons ───────────────────────────────────────── */
+button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #1176a3;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+button:hover { background: #0e5f85; transform: translateY(-2px); }
+button:active { transform: translateY(0); }
+
+/* ── Home page buttons (yellow from screenshot) ─────── */
+.btn-yellow {
+  background: #f0a500;
+  color: #1a1a1a;
+  font-weight: 700;
+}
+.btn-yellow:hover { background: #d4920a; }
+
+/* ── Back link ─────────────────────────────────────── */
+.back-link {
+  display: inline-block;
+  margin-top: 14px;
+  color: #1176a3;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+}
+.back-link:hover { color: #0e5f85; }
+
+/* ── Menu (Faculty Dashboard) ──────────────────────── */
+.menu a {
+  display: block;
+  background: #1176a3;
+  margin: 12px 0;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: background 0.2s, transform 0.15s;
+}
+.menu a:hover { background: #0e5f85; transform: translateY(-2px); }
+
+/* ── Tables ────────────────────────────────────────── */
+table {
+  width: 100%;
+  margin-top: 16px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+th {
+  background: #1176a3;
+  color: white;
+  padding: 12px 10px;
+  text-align: center;
+  font-weight: 600;
+}
+th:first-child { border-radius: 8px 0 0 0; }
+th:last-child  { border-radius: 0 8px 0 0; }
+td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  color: #333;
+}
+tr:last-child td { border-bottom: none; }
+
+/* ── Status colors ─────────────────────────────────── */
+.pending  { color: #f0a500; font-weight: 700; }
+.approved { color: #28a745; font-weight: 700; }
+.rejected { color: #dc3545; font-weight: 700; }
+
+/* ── Approve / Reject buttons (table action) ────────── */
+.approve-btn, .reject-btn {
+  width: auto;
+  padding: 8px 18px;
+  margin: 4px 4px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.approve-btn { background: #1176a3; }
+.approve-btn:hover { background: #0e5f85; }
+.reject-btn  { background: #1176a3; }
+.reject-btn:hover  { background: #0e5f85; }
+
+/* ── Toast ─────────────────────────────────────────── */
+.toast {
+  position: fixed; bottom: -80px; left: 50%;
+  transform: translateX(-50%);
+  background: #1176a3; color: #fff;
+  padding: 13px 28px; border-radius: 30px;
+  font-weight: 600; font-size: 14px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.25);
+  z-index: 9999; transition: bottom .4s ease;
+}
+.toast.show { bottom: 28px; }
+
+/* ── Spinner ───────────────────────────────────────── */
+.spinner {
+  display: inline-block; width: 14px; height: 14px;
+  border: 2px solid rgba(255,255,255,.4);
+  border-top-color: #fff; border-radius: 50%;
+  animation: spin .7s linear infinite; vertical-align: middle;
+}
+
+/* ── Animations ────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+
+/* ── Error messages ────────────────────────────────── */
+.err { color:#dc3545; font-size:12px; margin-top:2px; text-align:left; }
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 500px) {
+  .container, .box, .menu { width: 95vw; padding: 24px 16px; }
+}
